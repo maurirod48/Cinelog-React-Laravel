@@ -1,0 +1,13 @@
+.movie-card {
+    background-color: rgb(20, 17, 66);
+    padding: .5rem;
+    border-radius: .3rem;
+}
+
+.movie-card:hover {
+    background-color: rgb(45, 41, 41);
+}
+
+.movie-img {
+    width: 100%;
+}

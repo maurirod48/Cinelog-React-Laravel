@@ -5,13 +5,14 @@ import heroImg from './assets/hero.png'
 // import './App.css'
 import Home from "./pages/Home"
 import Favorites from "./pages/Favorites"
-import {Routes, Route} from"react-router-dom"
+import {Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navbar"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/favorites" element={<Favorites/>}/>

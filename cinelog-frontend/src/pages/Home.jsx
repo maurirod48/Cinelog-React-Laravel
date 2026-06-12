@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPopularMovies } from "../services/api";
 import MovieCard from "../components/MovieCard";
+import "../css/home.css"
 
 function Home() {
     const [movies, setMovies] = useState([]);
@@ -19,7 +20,6 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Hello React!</h1>
 
             <div className="movie-grid">
                 {movies.map(movie => (

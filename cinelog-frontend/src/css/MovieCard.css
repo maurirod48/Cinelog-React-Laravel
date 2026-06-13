@@ -1,13 +1,31 @@
 .movie-card {
     background-color: rgb(20, 17, 66);
-    padding: .5rem;
+    /* padding: .5rem .7rem; */
     border-radius: .3rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all ease-in-out 200ms;
+}
+
+.movie-card:hover {
+    opacity: 0.6;
 }
 
 .movie-card:hover {
     background-color: rgb(45, 41, 41);
 }
 
+.movie-details {
+    padding: 0rem 1rem;
+}
+
 .movie-img {
     width: 100%;
 }
+
+@media (max-width: 1000px) {
+    .movie-card {
+        width: 100%;
+    }
+}
+

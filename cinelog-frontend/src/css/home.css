@@ -14,6 +14,38 @@ body {
     padding: 2rem;
 }
 
+.search-bar-wrapper {
+    display: flex;
+    justify-content: center; align-items: center;
+    margin: 1.5rem 0;
+}
+
+.search-input {
+    font-size: 1.5rem;
+    padding: .3rem;
+    outline: none;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.search-input:focus {
+    border: 1px gray solid;
+}
+
+.search-btn {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    border: none;
+    background-color: rgb(1, 1, 107);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+
+/* MEDIA QUERIES */
 @media (max-width: 1000px) {
     .movie-grid {
         display: grid;

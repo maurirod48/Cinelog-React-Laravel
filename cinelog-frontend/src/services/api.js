@@ -9,3 +9,7 @@ export async function getPopularMovies() {
     return data.results;
 }
 
+
+export async function searchMovies(query) {
+    return `From API: ${query}`;
+}

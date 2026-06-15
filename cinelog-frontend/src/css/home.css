@@ -44,6 +44,17 @@ body {
     cursor: pointer;
 }
 
+.popular-movies-btn {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    border: none;
+    background-color: rgb(1, 1, 107);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
 
 /* MEDIA QUERIES */
 @media (max-width: 1000px) {

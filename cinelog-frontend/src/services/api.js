@@ -11,5 +11,11 @@ export async function getPopularMovies() {
 
 
 export async function searchMovies(query) {
-    return `From API: ${query}`;
+    const res = await fetch(`${BASE_URL}/search/movie?api_key=${OMDB_API_KEY}&query=${encodeURIComponent(
+        query
+    )}`);
+
+    const data = await res.json();
+
+    return data.results;
 }

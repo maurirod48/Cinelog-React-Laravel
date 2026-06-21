@@ -7,16 +7,19 @@ import Home from "./pages/Home"
 import Favorites from "./pages/Favorites"
 import {Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar"
+import { MovieProvider } from './context/MovieContext'
 
 function App() {
 
   return (
     <>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/favorites" element={<Favorites/>}/>
-      </Routes>
+      <MovieProvider>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/favorites" element={<Favorites/>}/>
+        </Routes>
+      </MovieProvider>
     </>
   )
 }

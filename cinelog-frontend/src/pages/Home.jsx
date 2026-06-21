@@ -4,14 +4,9 @@ import MovieCard from "../components/MovieCard";
 import "../css/home.css"
 
 function Home() {
-    // Search query from input bar
-    const [searchQuery, setSearchQuery] = useState("");
-    // Array of movie objects
-    const [movies, setMovies] = useState([]);
-    // Errors
-    const [error, setErrors] = useState(null);
-    // To show loading message
-    const [loading, setLoading] = useState(true);
+     // Context
+    const {movies, setMovies, searchQuery, setSearchQuery, 
+        error, setError, loading, setLoading} = useContext(MovieContext);
 
     useEffect(() => {
         async function loadPopularMovies() {
@@ -37,12 +32,12 @@ function Home() {
         try {
             const result = await searchMovies(searchQuery);
             setMovies(result);
-            console.log("MOVIES:", movies);
         } catch (err) {
             setErrors(err);
             console.error(error);
         } finally {
             setLoading(false);
+            console.log("MOVIES:", movies);
         }
     }
 

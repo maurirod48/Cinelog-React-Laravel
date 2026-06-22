@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getPopularMovies, searchMovies } from "../services/api";
 import MovieCard from "../components/MovieCard";
+import { MovieContext } from "../context/MovieContext";
 import "../css/home.css"
 
 function Home() {
@@ -22,6 +23,7 @@ function Home() {
             }    
         }
         loadPopularMovies();
+        console.log('Senku:', movies);
     }, []);
 
     // Handle search
@@ -72,7 +74,7 @@ function Home() {
             <div className="search-bar-wrapper">
                 <input type="text" className="search-input" 
                 placeholder="Search for movies..."
-                // value={searchQuery}
+                value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}/>
                 <button className="search-btn" 
                 onClick={() => handleSearch(searchQuery)}>search</button>

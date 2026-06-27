@@ -5,9 +5,6 @@ function MovieCard({movie}) {
     // Open movie details
     function showMovie(movie) {
         alert(movie.title);
-        // movies.map(movie => movie.id == movieId (
-        //     alert(movie)
-        // ));
     }
 
     return (
@@ -18,7 +15,6 @@ function MovieCard({movie}) {
                 <h3>{movie.title}</h3>
                 <p>{movie.release_date?.split('-')[0]}</p>
             </div>
-            
         </div>
     );
 }

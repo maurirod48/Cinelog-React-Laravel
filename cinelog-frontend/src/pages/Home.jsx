@@ -12,11 +12,15 @@ function Home() {
     useEffect(() => {
         async function loadPopularMovies() {
             try {
-                const attempt = await getPopularMovies();
-                setMovies(attempt);
-                console.log(attempt[0]);
+
+                if (movies.length < 1) {
+                    const attempt = await getPopularMovies();
+                    setMovies(attempt);
+                    console.log(attempt[0]);
+                }
+                
             } catch(err) {
-                setErrors(err);
+                setError(err);
                 console.error(error);
             } finally {
                 setLoading(false);
@@ -35,7 +39,7 @@ function Home() {
             const result = await searchMovies(searchQuery);
             setMovies(result);
         } catch (err) {
-            setErrors(err);
+            setError(err);
             console.error(error);
         } finally {
             setLoading(false);
@@ -46,6 +50,8 @@ function Home() {
     // If user wants to load popular movies again
     async function displayPopularMovies() {
         try {
+            // Clear search input.
+            setSearchQuery('');
             // Turn on loading message
             setLoading(true);
             // Get array of popular movie objects
@@ -53,10 +59,11 @@ function Home() {
             // Updating state variable containing movies to display
             setMovies(popularMovies);
         } catch(err) {
-            setErrors(err);
+            setError(err);
             console.log(error);
         } finally {
             setLoading(false);
+            console.log(movies);
         }
     }
 
@@ -87,13 +94,12 @@ function Home() {
             :
             (<div className="movie-grid">
                 {movies.map(movie => (
-                movie.title.toLowerCase().includes(searchQuery) &&
-                <MovieCard movie={movie} key={movie.id} onClick={() => showMovie(movie)}/>
-            ))}
-            {movies.length == 0 && <h1>No results to show</h1>}
-            </div>)}
-
-            
+                    movie.title.toLowerCase().includes(searchQuery) &&
+                    <MovieCard movie={movie} key={movie.id} onClick={() => showMovie(movie)}/>
+                ))}
+                {movies.length == 0 && <h1>No results to show</h1>}
+            </div>
+            )}
         </div>
     );
 }
